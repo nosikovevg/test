@@ -1,0 +1,21 @@
+name: Простой CI
+
+# Когда запускать workflow
+on:
+  push:
+    branches: [ "main" ]
+  
+
+# Что делать (jobs)
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest # Операционная система для выполнения
+    steps:
+      - name: Шаг 1. Копирование кода репозитория
+        uses: actions/checkout@v4
+
+      - name: Шаг 2. Вывод сообщения в консоль
+        run: echo "Привет, GitHub Actions!"
+
+      - name: Шаг 3. Вывод версии Node.js (при необходимости)
+        run: node -v
